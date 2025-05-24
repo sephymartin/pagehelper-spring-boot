@@ -16,13 +16,11 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>2.1.0</version>
+  <version>2.1.0-springboot3-SNAPSHOT</version>
 </dependency>
 ```
-
-## 微信公众号
-
-<img src="wx_mybatis.jpg" height="300"/>
+## v2.1.0-springboot3-SNAPSHOT
+- 升级 springboot 到 3.4.6 
 
 ## v2.1.0 - 2023-12-17
 
