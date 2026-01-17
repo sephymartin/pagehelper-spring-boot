@@ -63,17 +63,17 @@
     </modules>
 
     <properties>
-        <revision>2.1.0-springboot3-SNAPSHOT</revision>
+        <revision>2.1.0-springboot4-SNAPSHOT</revision>
 
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <mybatis.version>3.5.15</mybatis.version>
+        <mybatis.version>3.5.19</mybatis.version>
         <pagehelper.version>6.1.0</pagehelper.version>
-        <mybatis-spring-boot.version>2.3.2</mybatis-spring-boot.version>
-        <spring-boot.version>3.4.6</spring-boot.version>
+        <mybatis-spring-boot.version>4.0.0</mybatis-spring-boot.version>
+        <spring-boot.version>4.0.1</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -190,7 +190,17 @@
 
     <build>
         <plugins>
-
+            <!-- Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
             <!-- Source -->
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
