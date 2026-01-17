@@ -16,11 +16,14 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>2.1.0-springboot3-SNAPSHOT</version>
+  <version>2.1.0-springboot4-SNAPSHOT</version>
 </dependency>
 ```
-## v2.1.0-springboot3-SNAPSHOT
-- 升级 springboot 到 3.4.6 
+## v2.1.0-springboot4-SNAPSHOT
+- 升级 Spring Boot 到 4.0.1
+- 升级 MyBatis Spring Boot 到 4.0.0（兼容 Spring Boot 4）
+- 升级 MyBatis 到 3.5.19
+- 添加 maven-compiler-plugin 3.13.0 支持 Java 21 
 
 ## v2.1.0 - 2023-12-17
 
