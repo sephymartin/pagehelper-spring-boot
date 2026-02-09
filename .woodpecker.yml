@@ -7,13 +7,13 @@ steps:
       feishu_bot_secret:
         from_secret: feishu_bot_secret
       markdown: |
-        🏗️ 开始构建 <%= env.CI_REPO_NAME %> #<%= env.CI_PIPELINE_NUMBER %>
+        🏗️ 开始构建 <%= env.CI_REPO_NAME %> #<%= env.CI_PIPELINE_NUMBER || env.CI_BUILD_NUMBER %>
         
         - 提交: <%= env.CI_COMMIT_SHA %> (<%= env.CI_COMMIT_BRANCH || env.CI_COMMIT_TAG %>)
-        - 提交信息: <%= env.CI_COMMIT_MESSAGE.replaceAll(/\n/g, '; ') %>
+        - 提交信息: <%= env.CI_COMMIT_MESSAGE %>
         - 事件: <%= env.CI_PIPELINE_EVENT %>
         
-        📦️ [查看构建详情](<%= env.CI_PIPELINE_URL %>)
+        📦️ [查看构建详情](<%= env.CI_PIPELINE_URL || env.CI_BUILD_LINK %>)
     when:
       - event: [push, pull_request]
     failure: ignore
@@ -33,14 +33,14 @@ steps:
       feishu_bot_secret:
         from_secret: feishu_bot_secret
       markdown: |
-        <%= env.CI_PIPELINE_STATUS === 'success' ? '✅' : '❌' %> 构建完成 <%= env.CI_REPO_NAME %> #<%= env.CI_PIPELINE_NUMBER %>
+        <%= env.CI_PIPELINE_STATUS === 'success' ? '✅' : '❌' %> 构建完成 <%= env.CI_REPO_NAME %> #<%= env.CI_PIPELINE_NUMBER || env.CI_BUILD_NUMBER %>
         
         - 状态: <%= env.CI_PIPELINE_STATUS === 'success' ? '成功' : '失败' %>
         - 提交: <%= env.CI_COMMIT_SHA %> (<%= env.CI_COMMIT_BRANCH || env.CI_COMMIT_TAG %>)
-        - 提交信息: <%= env.CI_COMMIT_MESSAGE.replaceAll(/\n/g, '; ') %>
+        - 提交信息: <%= env.CI_COMMIT_MESSAGE %>
         - 事件: <%= env.CI_PIPELINE_EVENT %>
         
-        📦️ [查看构建详情](<%= env.CI_PIPELINE_URL %>)
+        📦️ [查看构建详情](<%= env.CI_PIPELINE_URL || env.CI_BUILD_LINK %>)
     when:
       - status: [success, failure]
     failure: ignore
